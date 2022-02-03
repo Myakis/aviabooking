@@ -13,7 +13,7 @@ const init = (selectorApp, title) => {
     firstForm.remove();
 
     main.append(...forms);
-    readyPlane(forms, main, count);
+    readyPlane(forms, main);
   });
 };
 

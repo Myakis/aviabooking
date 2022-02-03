@@ -1,4 +1,5 @@
 import createElement from './createElement.js';
+import declOfNum from './declOfNum.js';
 
 const createCockpit = titleText => {
   const cockpit = createElement('div', {
@@ -90,14 +91,8 @@ const createAirPlane = (title, scheme) => {
   return choisesSeat;
 };
 
-const airPlane = (main, data, count) => {
-  let title = `Выберите ${count} места`;
-  if (count == 1) {
-    title = `Выберите 1 место`;
-  }
-  if (count > 4) {
-    title = `Выберите ${count} мест`;
-  }
+const airPlane = (main, data) => {
+  let title = `Выберите ${declOfNum(data.length, ['место', 'места', 'мест'])}`;
 
   const scheme = ['exit', 11, 'exit', 1, 'exit', 17, 'exit'];
 
