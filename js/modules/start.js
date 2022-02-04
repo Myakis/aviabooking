@@ -22,7 +22,7 @@ const createFirstForm = data => {
 
   const labelTour = createElement('label', {
     className: 'field__label',
-    for: 'tour',
+    htmlfor: 'tour',
     textContent: 'Выбрать турк',
   });
 
