@@ -1,12 +1,11 @@
 import airPlane from './airPlane.js';
 
-const readyPlane = (forms, main) => {
+const readyPlane = (forms, main, tourData, h1) => {
   const data = [];
 
   forms.forEach(form => {
     form.addEventListener('submit', e => {
       e.preventDefault();
-      console.log(form.elements);
       for (let el of form.elements) {
         el.disabled = true;
       }
@@ -18,7 +17,7 @@ const readyPlane = (forms, main) => {
         forms.forEach(form => {
           form.remove();
         });
-        airPlane(main, data);
+        airPlane(main, data, tourData, h1);
       }
     });
   });
