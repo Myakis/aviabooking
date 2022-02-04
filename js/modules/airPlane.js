@@ -93,7 +93,7 @@ const createAirPlane = (title, tourData) => {
   return choisesSeat;
 };
 
-const checkSeat = (form, data, shoseForm, h1) => {
+const checkSeat = (form, data) => {
   form.addEventListener('change', () => {
     const formData = new FormData(form);
     const checked = Array.from(formData).map(([, value]) => value);
@@ -114,9 +114,12 @@ const checkSeat = (form, data, shoseForm, h1) => {
     for (let i = 0; i < data.length; i++) {
       data[i].seat = booking[i];
     }
-    shoseForm.remove();
-    h1.textContent = `Спасибо,хорошего полета, ваши места ${booking}`;
-    console.log(data);
+    form.remove();
+
+    document.body.innerHTML = `
+    <h1 class ="title">Спасибо, хорошего полета</h1>
+    <h2 class="title"> ${booking.length === 1 ? `Ваше место ${booking}` : `Ваши места ${booking}`}</h2>
+    `;
   });
 };
 
@@ -125,7 +128,7 @@ const airPlane = (main, data, tourData, h1) => {
 
   const shoseForm = createAirPlane(title, tourData);
 
-  checkSeat(shoseForm, data, shoseForm, h1);
+  checkSeat(shoseForm, data);
 
   main.append(shoseForm);
 };
